@@ -1,16 +1,61 @@
-html,
-body {
-  padding: 0;
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  --pastelGreenColour: hsl(83, 33%, 76%);
+  --greenColour: hsl(83, 33%, 66%);
+  --darkGreenColour: hsl(83, 33%, 56%);
+
+  --pastelPinkColour: hsl(354, 43%, 85%);
+  --pinkColour: hsl(354, 43%, 75%);
+  --velvetColour: hsl(354, 43%, 65%);
+
+  --ivoryColour: hsl(60, 100%, 97%);
+  --peachColour: hsl(44, 87%, 94%);
+  --darkPeachColour: hsl(44, 87%, 89%);
+
+  --primaryFont: "Open Sans";
+  --secondaryFont: "Roboto";
+  --cursiveFont: "Lobster";
+  --cursiveSerifFont: "Abril Fatface";
+
+  --navbar-height: 85px;
+  --footer-height: 150px;
+}
+
+main {
+  background-color: ivory;
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  position: relative;
+  z-index: 500;
+
+  height: var(--navbar-height);
+  background-color: var(--peachColour);
+
+  font-family: var(--primaryFont), sans-serif;
+}
+
+footer {
+  height: var(--footer-height);
+  background-color: var(--peachColour);
+  color: var(--greenColour);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
