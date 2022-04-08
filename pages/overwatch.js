@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef } from "react";
 
 
 class OWProfile {
