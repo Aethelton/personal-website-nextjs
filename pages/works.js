@@ -1,0 +1,132 @@
+import ProjectCard from "../components/ProjectCard";
+import Head from "next/head";
+import Navbar from "../components/Navbar";
+import FooterInfo from "../components/FooterInfo";
+
+const WorksPage = () => {
+    return (
+        <>
+            <Head>
+                <title>My Works</title>
+            </Head>
+
+            <header>
+                <Navbar />
+            </header>
+
+            <main>
+                <section id="project-container">
+                    <ProjectCard
+                        title={"Batman: Last Crusade"}
+                        src={"Batman%20Last%20Crusade%20Image.png"}
+                        href={"https://github.com/SuperMage03/Batman-Last-Crusade"}
+                    >
+                        Made for my Grade 11 FSE from Unity. The game is about using grappling and gliding to
+                        collect the Riddler&apos;s Trophies. Some assets are from Batman Arkham Game Series by WB
+                        Games, used for Educational Purpose only.
+                    </ProjectCard>
+
+
+                    <ProjectCard
+                        title={"ChessFSE"}
+                        src={"ChessFSE%20Image.png"}
+                        href={"https://github.com/SuperMage03/ChessFSE"}
+                    >
+                        This Chess game is created for my Grade 12 FSE. It has an AI run by Minimax and
+                        Alpha-beta pruning algorithm.
+                        The game also contains a scoreboard and supports 2 player game as well. Created with
+                        Java Swing.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"Jimmy"}
+                        src={"Jimmy%20Image.png"}
+                        href={"https://github.com/SuperMage03/Jimmy"}
+                    >
+                        Jimmy is an FPS game I created with my friend Shengbuo for my school&apos;s 7 Week Challenge
+                        Game Jam
+                        Week. The game&apos;s objective is to shoot your way out of the zombie mazes and defeat the
+                        Boss.
+                        This game is made with Unity.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"Matrix of Heroes"}
+                        src={"Matrix%20of%20Heroes%20Image.png"}
+                        href={"https://github.com/SuperMage03/Matrix-of-Heroes"}
+                    >
+                        Matrix of Heroes is made from Unity with Shengbuo, Angela, and Lily. We created this
+                        game for Defhacks 2020 and won
+                        the beginners hack award. This game helps kids learn math and use it to do damage and
+                        beat levels. In addition,
+                        teachers can track down students&apos; progress.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"OverPaint"}
+                        src={"OverPaint%20Image.png"}
+                        href={"https://github.com/SuperMage03/OverPaint"}
+                    >
+                        This is an Overwatch themed MS Paint like program I built during my Grade 11 Comp Sci
+                        Class as a project.
+                        It features customizable background, multiple painting tools, stickers, save/load,
+                        undo/redo, filters,
+                        as well as a built-in music player. This program was made with PyGame.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"Tron"}
+                        src={"Tron%20Image.png"}
+                        href={"https://github.com/SuperMage03/Tron"}
+                    >
+                        This is my vision of the classic Arcade game Tron. Built from Java Swing, the game has
+                        Single-Player and Multiplayer mode,
+                        as well as a built-in scoreboard like the classic one. In addition to the classic
+                        gameplay, this version of Tron has explosives
+                        and time rewind.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"Vertical Carousel"}
+                        src={"Vertical%20Carousel%20Image.png"}
+                        href={"https://github.com/SuperMage03/Responsive-Vertical-Carousel"}
+                    >
+                        This is a simple Vertical Carousel Plugin that allows pictures to be looped, and only loads
+                        pictures that users can see for optimal performance. It&apos;s also Responsive, you can set the width
+                        and height to any value or unit. This plugin is built mainly with JS and some CSS.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"Java Data Structures"}
+                        src={"Data%20Structures%20Image.jpg"}
+                        href={"https://github.com/SuperMage03/Data-Structures-from-Scratch"}
+                    >
+                        This is my adventure to build data structures from scratch. I always wanted to see how
+                        each data structure works,
+                        as well as why they are good at some stuff and bad at others. This project also helped
+                        me understand more about
+                        time and space complexity.
+                    </ProjectCard>
+
+                    <ProjectCard
+                        title={"Retro Tasker"}
+                        src={"Retro%20Tasker%20Image.png"}
+                        href={"https://github.com/SuperMage03/Retro-Tasker"}
+                    >
+                        This is my first web app created for my school&apos;s 7 Week Challenge Web Dev Week. Retro
+                        Tasker is created with
+                        Express for back-end, HTML/CSS/JS for front-end, and JSNES for NES emulation. The app
+                        allows user to create tasks,
+                        and check-in on time to earn play times for NES.
+                    </ProjectCard>
+                </section>
+            </main>
+
+            <footer>
+                <FooterInfo />
+            </footer>
+        </>
+    );
+};
+
+export default WorksPage;
