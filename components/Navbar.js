@@ -23,13 +23,12 @@ const Navbar = () => {
 
     useEffect(() => {
         navLinks.current = navLinkRef.current.querySelectorAll(".nav-links > li");
+        document.body.classList.remove("lock-scroll");
     }, []);
 
-    if (phoneMedia) {
-        if (document.body.classList.contains("lock-scroll")) {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+    if (phoneMedia && document.body.classList.contains("lock-scroll")) {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 
     const toggleNavExpandable = (ref) => {
@@ -81,7 +80,7 @@ const Navbar = () => {
 
                     <ul>
                         <li>
-                            <Link href={"/overwatch"}><a href="overwatch.html">OVERWATCH</a></Link>
+                            <Link href={"/overwatch"}><a>OVERWATCH</a></Link>
                         </li>
                         <li>
                             <Link href={"/custom-keyboard"}><a>CUSTOM KEYBOARD</a></Link>

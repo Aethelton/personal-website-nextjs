@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
-import { useEffect, useRef } from "react";
+import {useEffect, useRef} from "react";
 
 
 class OWProfile {
@@ -27,8 +27,8 @@ class Role {
     }
 }
 
-const addHeader = (parentNode, headerType, innerText, id="", className="") => {
-    const newNode =  document.createElement(headerType);
+const addHeader = (parentNode, headerType, innerText, id = "", className = "") => {
+    const newNode = document.createElement(headerType);
     newNode.id = id;
     newNode.className = className;
     newNode.innerText = innerText;
@@ -36,8 +36,8 @@ const addHeader = (parentNode, headerType, innerText, id="", className="") => {
     return newNode;
 };
 
-const addImg = (parentNode, src, alt, id="", className="") => {
-    const newNode =  document.createElement("img");
+const addImg = (parentNode, src, alt, id = "", className = "") => {
+    const newNode = document.createElement("img");
     newNode.id = id;
     newNode.className = className;
     newNode.src = src;
@@ -46,8 +46,8 @@ const addImg = (parentNode, src, alt, id="", className="") => {
     return newNode;
 };
 
-const addDiv = (parentNode, bgImg="", innerText="", id="", className="") => {
-    const newNode =  document.createElement("div");
+const addDiv = (parentNode, bgImg = "", innerText = "", id = "", className = "") => {
+    const newNode = document.createElement("div");
     newNode.id = id;
     newNode.className = className;
     newNode.innerText = innerText;
@@ -56,46 +56,53 @@ const addDiv = (parentNode, bgImg="", innerText="", id="", className="") => {
     return newNode;
 };
 
-const displayOWProfile = () => {
-    fetch("https://ovrstat.com/stats/pc/SuperMage-149910", {
+
+const displayOWProfile = (data) => {
+    const myOWProfile = new OWProfile(data);
+    const owStatsContainer = document.getElementById("ow-stats-content");
+
+    // Adds to the Stats Container
+    addImg(owStatsContainer, myOWProfile.icon, "Player Icon", "ow-profile-icon");
+    addHeader(owStatsContainer, "h1", myOWProfile.name, "ow-username");
+    addHeader(owStatsContainer, "h3", myOWProfile.wins + " Games Won", "ow-games-won");
+    addDiv(owStatsContainer, myOWProfile.border, myOWProfile.level, "ow-level");
+    const srContainer = addDiv(owStatsContainer, "", "", "ow-sr-container");
+
+    // Adds to Main SR Container
+    const individualSRContainers = {
+        tank: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container"),
+        damage: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container"),
+        support: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container")
+    };
+
+    // Adds to individual SR Containers
+    for (const [role, containerNode] of Object.entries(individualSRContainers)) {
+        addImg(containerNode, myOWProfile[role].roleIcon, `${role} Role Icon`, "", "ow-role-icon");
+        addImg(containerNode, myOWProfile[role].rankIcon, `${role} Rank Icon`, "", "ow-rank-icon");
+        addHeader(containerNode, "h4", myOWProfile[role].sr, "", "ow-role-sr-text");
+    }
+}
+
+export const getServerSideProps = async () => {
+    // Fetch data from external API
+    const res = await fetch("https://ovrstat.com/stats/pc/SuperMage-149910", {
         method: 'GET',
         headers: {
             "Access-Control-Allow-Origin": "*"
         },
-    }).then(response => response.json()).then(data => {
-        const myOWProfile = new OWProfile(data);
-        const owStatsContainer = document.getElementById("ow-stats-content");
-
-        // Adds to the Stats Container
-        addImg(owStatsContainer, myOWProfile.icon, "Player Icon", "ow-profile-icon");
-        addHeader(owStatsContainer, "h1", myOWProfile.name, "ow-username");
-        addHeader(owStatsContainer, "h3", myOWProfile.wins + " Games Won", "ow-games-won");
-        addDiv(owStatsContainer, myOWProfile.border, myOWProfile.level, "ow-level");
-        const srContainer = addDiv(owStatsContainer, "", "", "ow-sr-container");
-
-        // Adds to Main SR Container
-        const individualSRContainers = {
-            tank: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container"),
-            damage: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container"),
-            support: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container")
-        };
-
-        // Adds to individual SR Containers
-        for (const [role, containerNode] of Object.entries(individualSRContainers)) {
-            addImg(containerNode, myOWProfile[role].roleIcon, `${role} Role Icon`, "", "ow-role-icon");
-            addImg(containerNode, myOWProfile[role].rankIcon, `${role} Rank Icon`, "", "ow-rank-icon");
-            addHeader(containerNode, "h4", myOWProfile[role].sr, "", "ow-role-sr-text");
-        }
     });
-}
+    const data = await res.json();
 
+    // Pass data to the page via props
+    return {props: {data}}
+};
 
-const OverwatchPage = () => {
+const OverwatchPage = ({ data }) => {
     const loadedRef = useRef(false);
 
     useEffect(() => {
         if (!loadedRef.current) {
-            displayOWProfile();
+            displayOWProfile(data);
             loadedRef.current = true;
         }
     }, []);
@@ -103,23 +110,23 @@ const OverwatchPage = () => {
     return (
         <>
             <Head>
-                <title>About Me</title>
+                <title>Overwatch</title>
             </Head>
 
             <header>
-                <Navbar />
+                <Navbar/>
             </header>
 
             <main>
                 <section id="ow-stats-container">
-                    <div id="ow-stats-bg" />
-                    <div id="ow-stats-content" />
-                    <i id="ow-dropdown-arrow" className="fas fa-angle-down" />
+                    <div id="ow-stats-bg"/>
+                    <div id="ow-stats-content"/>
+                    <i id="ow-dropdown-arrow" className="fas fa-angle-down"/>
                 </section>
             </main>
 
             <footer>
-                <FooterInfo />
+                <FooterInfo/>
             </footer>
         </>
     );

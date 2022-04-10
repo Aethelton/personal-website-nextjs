@@ -29,15 +29,6 @@ const initializeKeyboardModal = () => {
     });
 };
 
-const modalOffTransitionWait = (modalContent) => {
-    const modalContentAnimeTime = getComputedStyle(modalContent).getPropertyValue("transition-duration");
-    const modalContentAnimeTimeNum = Math.ceil(parseFloat(modalContentAnimeTime) * 1000);
-
-    setTimeout(() => {
-        modalContent.style.position = "";
-    }, modalContentAnimeTimeNum);
-};
-
 
 const CustomKeyboardPage = () => {
     useEffect(() => {

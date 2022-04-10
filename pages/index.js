@@ -5,6 +5,21 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
 
+const SwiperConfig = {
+    loop: true,
+    effect: "cube",
+    cubeEffect: {
+        shadow: false,
+        slideShadows: false,
+    },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+    },
+    direction: "vertical",
+    slidesPerView: 1,
+    grabCursor: true,
+};
 
 const HomePage = () => {
     SwiperCore.use([Autoplay, EffectCube]);
@@ -29,22 +44,7 @@ const HomePage = () => {
                         </div>
                         <div>
                             <div>I Love&nbsp;</div>
-                            <Swiper
-                                className="homepage-cube"
-                                loop={true}
-                                effect={"cube"}
-                                cubeEffect={{
-                                    shadow: false,
-                                    slideShadows: false
-                                }}
-                                autoplay={{
-                                    delay: 2500,
-                                    disableOnInteraction: false
-                                }}
-                                direction={'vertical'}
-                                slidesPerView={1}
-                                grabCursor={true}
-                            >
+                            <Swiper className="homepage-cube" {...SwiperConfig}>
                                 <SwiperSlide>Making Games</SwiperSlide>
                                 <SwiperSlide>Creating Websites</SwiperSlide>
                                 <SwiperSlide>Playing Overwatch</SwiperSlide>
