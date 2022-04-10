@@ -280,7 +280,7 @@ footer {
 
 .contact-form-group input:focus, .contact-form-group textarea:focus {
     outline: none !important;
-    border:1px solid var(--greenColour);
+    border: 1px solid var(--greenColour);
     box-shadow: 0 0 10px var(--greenColour);
 }
 
@@ -1214,6 +1214,58 @@ a.darkPeachButton:hover {
     color: var(--velvetColour);
 }
 
+/* NProgress Bar */
+#nprogress .bar {
+    background: var(--pastelPinkColour) !important;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px var(--pastelPinkColour), 0 0 5px var(--pastelPinkColour) !important;
+}
+
+#nprogress .spinner-icon {
+    border-top-color: var(--pastelPinkColour) !important;
+    border-left-color: var(--pastelPinkColour) !important;
+}
+
+/*
+#nprogress .bar {
+    height: 4px;
+    background: linear-gradient(to right, var(--greenColour), var(--pinkColour)) !important;
+    background-size: 200%;
+    animation: 2s linear infinite bar-progress, .3s fadein;
+    width: 100%;
+}
+
+@keyframes bar-progress {
+    0% {
+        background-position: 0 0
+    }
+    to {
+        background-position: 50% 0
+    }
+}
+*/
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    /*background-color: #ebebeb;*/
+    background-color: ivory;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: hsl(83, 33%, 80%);
+    /*background: hsl(353, 43%, 89%);*/
+}
+
 
 /* Mid width size screen */
 @media screen and (max-width: 1250px) {
@@ -1456,6 +1508,7 @@ a.darkPeachButton:hover {
         transform: translateX(0px);
     }
 }
+
 @keyframes aboutMeImage {
     from {
         transform: translateX(-100%);
@@ -1465,7 +1518,7 @@ a.darkPeachButton:hover {
     }
 }
 
-@keyframes ow-arrow-bounce  {
+@keyframes ow-arrow-bounce {
     from {
         top: 92%;
     }
