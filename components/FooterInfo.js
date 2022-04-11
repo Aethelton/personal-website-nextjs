@@ -15,7 +15,7 @@ const FooterInfo = () => {
             </div>
 
             <div className="footer-info">
-                <p>Copyright © 2021 Eston Li</p>
+                <p>Copyright © 2022 Eston Li</p>
             </div>
 
             <Script src="https://kit.fontawesome.com/c83ef652df.js" crossOrigin="anonymous" />
