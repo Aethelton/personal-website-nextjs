@@ -38,7 +38,7 @@ const ContactPage = () => {
                             <textarea id="message" name="message" cols="30" rows="10" required />
                         </div>
 
-                        <input type="hidden" name="_next" value="https://estonli.ca/contact-thanks.html" />
+                        <input type="hidden" name="_next" value="https://www.estonli.ca/contact-thanks" />
                         <button type="submit">Send Message</button>
                     </form>
                 </div>
