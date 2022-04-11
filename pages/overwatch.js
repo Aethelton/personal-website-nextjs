@@ -97,6 +97,13 @@ export const getServerSideProps = async () => {
     return {props: {data}}
 };
 
+const OverwatchArrow = () => {
+    document.documentElement.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+};
+
 const OverwatchPage = ({ data }) => {
     const loadedRef = useRef(false);
 
@@ -121,7 +128,7 @@ const OverwatchPage = ({ data }) => {
                 <section id="ow-stats-container">
                     <div id="ow-stats-bg"/>
                     <div id="ow-stats-content"/>
-                    <i id="ow-dropdown-arrow" className="fas fa-angle-down"/>
+                    <i id="ow-dropdown-arrow" className="fas fa-angle-down" onClick={OverwatchArrow} />
                 </section>
             </main>
 
