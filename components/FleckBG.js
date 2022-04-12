@@ -167,7 +167,7 @@ const FleckBG = (props) => {
     }, []);
 
     return (
-        <canvas style={{...canvasStyles, backgroundColor: `${props.bgColour}`}} ref={canvasRef} width={4000} height={3000}/>
+        <canvas style={{...canvasStyles, backgroundColor: `${props.bgColour}`}} ref={canvasRef} width={4000} height={5000}/>
     );
 };
 
