@@ -1,6 +1,16 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
+import FleckBG from "../components/FleckBG";
+
+const fleckColours = [
+    "hsl(83, 33%, 76%)",
+    "hsl(83, 33%, 66%)",
+    "hsl(354, 43%, 85%)",
+    "hsl(354, 43%, 75%)",
+    "hsl(44, 87%, 94%)",
+    "hsl(44, 87%, 89%)"
+];
 
 const ContactPage = () => {
     return (
@@ -13,8 +23,15 @@ const ContactPage = () => {
                 <Navbar/>
             </header>
 
-            <main>
-                <div id="contact-container">
+            <main style={{display: "flex", backgroundColor: "transparent"}}>
+                <div id="contact-container" style={{position: "relative", width: "100%", overflow: "hidden"}}>
+                    <FleckBG
+                        bgColour={"ivory"}
+                        fleckSeed={123449}
+                        fleckCount={2000}
+                        fleckBaseSize={5}
+                        fleckColours={fleckColours}
+                    />
                     <form action="https://formsubmit.co/contact@estonli.ca" method="POST">
                         <div id="contact-name">
                             <div className="contact-form-group">
