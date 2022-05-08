@@ -3,6 +3,7 @@ import FooterInfo from "../components/FooterInfo";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import FleckBG from "../components/FleckBG";
+import Style from "../styles/About.module.css";
 
 const fleckColours = [
     "hsl(83, 33%, 76%)",
@@ -35,9 +36,9 @@ const AboutPage = () => {
                     />
 
                     <div>
-                        <h1 id="about-me-header">Hi There!</h1>
+                        <h1 className={Style.aboutMeHeader}>Hi There!</h1>
 
-                        <section id="about-me-section">
+                        <section className={Style.aboutMeSection}>
                             <img src="/About%20Me%20Picture.jpg" alt="My Portrait" />
                             <div/>
                             <p>

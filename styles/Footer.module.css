@@ -1,0 +1,42 @@
+.footerIcons {
+    display: flex;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerIcons > a {
+    display: block;
+    margin: 1% 6px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 160%;
+    height: 20%;
+}
+
+.footerIcons > a:hover {
+    color: hsl(83, 33%, 56%);
+}
+
+
+.footerInfo {
+    display: flex;
+    height: 60%;
+    justify-content: center;
+    color: var(--pinkColour);
+    font-family: var(--secondaryFont), sans-serif;
+    font-weight: bold;
+}
+
+.footerInfo > p {
+    margin-top: 1.5rem;
+}
+
+.devpostIcon {
+    filter: invert(90%) sepia(9%) saturate(1111%) hue-rotate(36deg) brightness(86%) contrast(86%);
+    height: 175%;
+}
+
+.devpostIcon:hover {
+    filter: invert(72%) sepia(28%) saturate(526%) hue-rotate(42deg) brightness(90%) contrast(87%);
+}

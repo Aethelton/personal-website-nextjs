@@ -3,7 +3,7 @@ const GamingConsoleSlide = (props) => {
         <>
             <img src={`/Gaming%20Console%20Images/${props.src}`} alt={props.title}/>
             <div>
-                <h3 className="console-carousel-text">{props.children}</h3>
+                <h3 className={props.Style.consoleCarouselText}>{props.children}</h3>
             </div>
         </>
     );

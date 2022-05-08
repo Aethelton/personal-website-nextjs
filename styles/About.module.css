@@ -1,0 +1,99 @@
+/* About Me Page */
+.aboutMeHeader {
+    padding-top: 40px;
+    color: var(--greenColour);
+    font-family: var(--primaryFont), "sans-serif";
+    font-size: 3rem;
+    text-align: center;
+}
+
+.aboutMeSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    max-width: 1000px;
+
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.aboutMeSection > img {
+    width: 40%;
+    margin: auto;
+    box-shadow: 0 0 10px var(--darkPeachColour);
+    animation: aboutMeImage 600ms;
+}
+
+.aboutMeSection > div {
+    background-color: var(--greenColour);
+    width: 2px;
+    margin-right: 20px;
+    border-radius: 2px;
+}
+
+.aboutMeSection > p {
+    width: 50%;
+    font-family: var(--secondaryFont), "sans-serif";
+    font-size: 1.2rem;
+    color: var(--velvetColour);
+    animation: aboutMeParagraph 600ms;
+}
+
+.aboutMeSection > p > a {
+    color: var(--velvetColour);
+    text-decoration-thickness: 2px;
+}
+
+.aboutMeSection > p > a:hover {
+    color: var(--pinkColour);
+}
+
+@media screen and (max-width: 1015px) {
+    .aboutMeSection > p {
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 685px) {
+    .aboutMeSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutMeSection > img {
+        margin: auto auto 20px;
+    }
+
+    .aboutMeSection > div {
+        width: 90%;
+        height: 2px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .aboutMeSection > p {
+        width: 90%;
+        text-align: center;
+        padding-right: 0;
+    }
+}
+
+@keyframes aboutMeParagraph {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes aboutMeImage {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}

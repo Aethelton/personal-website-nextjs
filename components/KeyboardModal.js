@@ -1,18 +1,18 @@
 const KeyboardModal = (props) => {
     return (
-        <div className="keyboard-modal">
-            <div className="keyboard-modal-content">
+        <div className={props.Style.keyboardModal}>
+            <div className={props.Style.keyboardModalContent}>
                 <div className="modal-header">
                     <div/>
                     <div>
-                        <i className="fas fa-times modal-closeBtn keyboard-modal-closeBtn"/>
+                        <i className={`fas fa-times modal-closeBtn ${props.Style.keyboardModalCloseBtn}`}/>
                     </div>
                 </div>
 
                 <div className="keyboard-modal-body">
-                    <div className="keyboard-banner">
+                    <div className={props.Style.keyboardModalBanner}>
                         <img src={`/Custom%20Keyboard%20Images/${props.src}`} alt={props.title}/>
-                        <div className="keyboard-banner-text">
+                        <div className={props.Style.keyboardModalBannerText}>
                             <h3>Keyboard Showcase</h3>
                             <h1>{props.title}</h1>
                         </div>

@@ -1,0 +1,85 @@
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    min-width: 91%;
+    max-width: 91%;
+    margin: 10px auto;
+
+    background-color: var(--peachColour);
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--greenColour);
+
+    transition: transform 150ms ease-in-out;
+
+    animation-name: fade-up;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in-out;
+}
+
+.projectCard:hover {
+    transform: scale(1.03);
+}
+
+.projectCard > img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.projectCard > h2 {
+    margin-top: 5px;
+    padding: 0 10px;
+    font-family: var(--primaryFont), "sans-serif";
+    color: var(--greenColour);
+}
+
+.projectCard > p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    font-size: 0.92rem;
+    font-family: var(--secondaryFont), "sans-serif";
+    color: var(--velvetColour);
+}
+
+.projectCard > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto 10px 10px auto;
+
+    width: 6rem;
+    height: 2rem;
+
+    background-color: var(--greenColour);
+    color: var(--darkPeachColour);
+
+    border-radius: 5px;
+
+    font-family: var(--secondaryFont), "sans-serif";
+    font-size: 0.92em;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: background-color, color 400ms;
+}
+
+.projectCard > a:hover {
+    background-color: var(--darkPeachColour);
+    color: var(--greenColour);
+}
+
+@media screen and (max-width: 1015px) {
+    .projectCard {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 685px) {
+    .projectCard {
+        width: 80%;
+    }
+}

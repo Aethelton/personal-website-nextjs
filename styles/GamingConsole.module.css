@@ -1,0 +1,318 @@
+.consoleModalCloseBtn {
+    color: var(--greenColour);
+}
+
+.consoleModalCloseBtn:hover {
+    color: var(--darkGreenColour);
+}
+
+.consolesMainSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    background: linear-gradient(to bottom right, hsl(83, 33%, 66%), hsl(52, 23%, 67%) 75%);
+}
+
+.consolesMainSection > h1 {
+    font-family: var(--cursiveFont), "cursive";
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--peachColour);
+    letter-spacing: 2px;
+    margin: 1rem auto 1rem auto;
+}
+
+.consoleCollectionCarousel {
+    position: relative;
+    max-width: 1200px;
+    width: 90%;
+    overflow: visible !important;
+    margin: auto;
+}
+
+.consoleCollectionCarousel :global(.swiper-slide):only-child {
+    margin-bottom: 20px;
+}
+
+.consoleCollectionCarousel :global(.swiper-pagination) {
+    position: static;
+    margin: 5px;
+}
+
+.consoleCollectionCarousel :global(.swiper-pagination-bullet-active) {
+    background-color: var(--pastelPinkColour);
+}
+
+.consoleCollectionCarousel :global(.swiper-button-prev) {
+    position: absolute;
+    left: 0;
+}
+
+.consoleCollectionCarousel :global(.swiper-button-next) {
+    position: absolute;
+    left: 100%;
+    transform: translateX(-100%);
+    background-image: url("../public/angle-right-solid.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.consoleCollectionCarousel :global(.swiper-button-prev)::before,
+.consoleCollectionCarousel :global(.swiper-button-next)::before,
+.consoleModalCarousel :global(.swiper-button-prev)::before,
+.consoleModalCarousel :global(.swiper-button-next)::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    top: 0;
+    left: 0;
+    background-color: hsla(44, 87%, 0%, 0.2);
+    transform: translate(-2px, -2px);
+    border-radius: 4px;
+    transition: background-color 250ms ease-in-out;
+}
+
+.consoleCollectionCarousel :global(.swiper-button-prev):hover::before,
+.consoleCollectionCarousel :global(.swiper-button-next):hover::before,
+.consoleModalCarousel :global(.swiper-button-prev):hover::before,
+.consoleModalCarousel :global(.swiper-button-next):hover::before {
+    background-color: hsla(44, 87%, 0%, 0.4);
+}
+
+.consoleCollectionCarousel :global(.swiper-button-next)::after,
+.consoleCollectionCarousel :global(.swiper-button-prev)::after,
+.consoleModalCarousel :global(.swiper-button-next)::after,
+.consoleModalCarousel :global(.swiper-button-prev)::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    filter: invert(83%) sepia(5%) saturate(1254%) hue-rotate(305deg) brightness(106%) contrast(83%);
+}
+
+.consoleCollectionCarousel :global(.swiper-button-prev)::after,
+.consoleModalCarousel :global(.swiper-button-prev)::after {
+    background-image: url("../public/angle-left-solid.svg");
+}
+
+.consoleCollectionCarousel :global(.swiper-button-next)::after,
+.consoleModalCarousel :global(.swiper-button-next)::after {
+    background-image: url("../public/angle-right-solid.svg");
+}
+
+.consoleCollectionCarousel :global(.swiper-slide) {
+    position: relative;
+    overflow: hidden;
+
+    width: auto;
+    height: 25rem;
+    border-radius: 10px;
+    cursor: pointer;
+
+    border: solid 1px var(--darkPeachColour);
+    box-shadow: 0 0 10px var(--darkPeachColour);
+    background-color: hsla(44, 87%, 94%, 0.4);
+}
+
+.consoleCollectionCarousel :global(.swiper-slide) > img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    user-select: none;
+}
+
+.consoleCollectionCarousel :global(.swiper-slide)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: hsla(44, 87%, 89%, 0);
+    transition: background-color 250ms ease-in-out;
+}
+
+.consoleCollectionCarousel :global(.swiper-slide):hover::after {
+    background-color: hsla(44, 87%, 89%, 0.1);
+}
+
+.consoleCollectionCarousel :global(.swiper-slide) > div {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 1rem 1rem 1rem 2rem;
+    height: 7rem;
+    background-color: hsla(44, 87%, 0%, 0.1);
+}
+
+.consoleCarouselText {
+    width: 70%;
+    font-size: 1.6rem;
+    font-family: var(--secondaryFont), "sans-serif";
+    color: var(--pastelPinkColour);
+}
+
+.consoleModalBackground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    padding: 1.25rem 0;
+    z-index: 999;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    pointer-events: none;
+    opacity: 0;
+
+    transition: opacity 250ms ease-in-out;
+}
+
+.consoleModalBackgroundActive {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.consoleModalContent {
+    position: absolute;
+    border-radius: 7px;
+    background-color: var(--peachColour);
+    margin: auto;
+
+    opacity: 0;
+    pointer-events: none;
+
+    width: 90%;
+    max-width: 600px;
+
+    padding-bottom: 1.5rem;
+
+    box-shadow: 0 5px 8px 0 hsla(44, 87%, 94%, 0.3), 0 7px 20px 0 hsla(44, 87%, 94%, 0.3);
+    /*border: solid 1px var(--peachColour);*/
+
+    transform-origin: center;
+    transform: scale(0.2);
+
+    overflow: hidden;
+
+    transition-property: transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+.consoleModalContent::after {
+    content: "";
+}
+
+.consoleModalContentActive {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.consoleModalCarousel {
+    position: relative;
+    width: 100%;
+
+}
+
+.consoleModalCarousel :global(.swiper-slide) {
+    position: relative;
+    overflow: hidden;
+
+    width: auto;
+    /*height: 25rem;*/
+    /*border-radius: 10px;*/
+    /*cursor: pointer;*/
+
+    /*border: solid 1px var(--darkPeachColour);*/
+    background-color: hsla(44, 87%, 94%, 0.4);
+}
+
+.consoleModalCarousel :global(.swiper-slide) > img {
+    display: block;
+    width: 100%;
+}
+
+.consoleModalCarousel :global(.swiper-pagination) {
+    position: absolute;
+    bottom: 0;
+}
+
+.consoleModalCarousel :global(.swiper-pagination-bullet) {
+    opacity: 0.5;
+}
+
+.consoleModalCarousel :global(.swiper-pagination-bullet-active) {
+    background-color: var(--pastelPinkColour);
+    opacity: 1;
+}
+
+.consoleModalCarousel :global(.swiper-button-prev) {
+    position: absolute;
+    left: 2%;
+}
+
+.consoleModalCarousel :global(.swiper-button-next) {
+    position: absolute;
+    left: 98%;
+    transform: translateX(-100%);
+    background-image: url("../public/angle-right-solid.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.consoleModalBody {
+    padding: 1rem 1rem 0.5rem 1rem;
+    min-height: 8rem;
+    background: linear-gradient(to bottom right, var(--pastelPinkColour), var(--darkPeachColour));
+}
+
+.consoleModalBodyContent {
+    display: none;
+}
+
+.consoleModalBodyContent > h2 {
+    font-family: var(--cursiveSerifFont), "sans-serif";
+    color: var(--darkGreenColour);
+    margin-bottom: 0.5rem;
+}
+
+.consoleModalBodyContent > p {
+    font-family: var(--secondaryFont), "sans-serif";
+    color: var(--velvetColour);
+    margin-bottom: 0.5rem;
+}
+
+.consoleModalBodyContentActive {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .console-collection-carousel :global(.swiper-slide) {
+        width: 90%;
+    }
+
+    .console-collection-carousel :global(.swiper-slide) > img {
+        width: 100%;
+    }
+
+    .console-collection-carousel :global(.swiper-slide) > div {
+        padding: 1rem;
+    }
+}

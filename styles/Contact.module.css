@@ -1,0 +1,117 @@
+/* Contact Page */
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: var(--secondaryFont), "sans-serif";
+    color: var(--greenColour);
+    font-weight: 600;
+
+    padding-bottom: 30px;
+}
+
+.contactName {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+}
+
+.contactName input {
+    width: 24vw;
+}
+
+.contactName .contactFormGroup {
+    margin: 30px 0 0;
+}
+
+.contactFormGroup {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.contactFormGroup label {
+    display: block;
+}
+
+.contactFormGroup input {
+    height: 3rem;
+    padding: 5px;
+
+    font-family: var(--primaryFont), "sans-serif";
+    font-size: 1rem;
+
+    background-color: hsl(60, 100%, 98%);
+    color: var(--pinkColour);
+
+    border: 1px solid var(--pinkColour);
+    border-radius: 5px;
+
+    margin-top: 5px;
+}
+
+.contactFormGroup textarea {
+    resize: vertical;
+    padding: 5px;
+
+    font-family: var(--primaryFont), "sans-serif";
+    font-size: 1rem;
+
+    background-color: hsl(60, 100%, 98%);
+    color: var(--pinkColour);
+
+    border: 1px solid var(--pinkColour);
+    border-radius: 5px;
+
+    margin-top: 5px;
+}
+
+.contactFormGroup input:focus, .contactFormGroup textarea:focus {
+    outline: none !important;
+    border: 1px solid var(--greenColour);
+    box-shadow: 0 0 10px var(--greenColour);
+}
+
+.contactContainer button[type=submit] {
+    width: 160px;
+    height: 50px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+    font-weight: bold;
+    font-family: var(--primaryFont), "sans-serif";
+
+    background-color: var(--greenColour);
+    color: var(--peachColour);
+
+    cursor: pointer;
+
+    transition: background-color, color 400ms;
+}
+
+.contactContainer button[type=submit]:hover {
+    background-color: var(--peachColour);
+    color: var(--greenColour);
+}
+
+@media screen and (max-width: 768px) {
+    .contactFormGroup {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 0;
+        width: 75vw;
+    }
+
+    .contactName {
+        flex-direction: column;
+    }
+
+    .contactName input {
+        width: 75vw;
+    }
+}

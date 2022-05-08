@@ -1,29 +1,30 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
-import {useEffect} from "react";
 import KeyboardCard from "../components/KeyboardCard";
 import KeyboardModal from "../components/KeyboardModal";
+import KeyboardModalStyle from "../styles/KeyboardModal.module.css";
 
 
 const initializeKeyboardModal = () => {
     const modalOpenBtns = document.querySelectorAll(".keyboard-modal-openBtn");
 
     modalOpenBtns.forEach(modalOpenBtn => {
-        const modal = modalOpenBtn.closest("article").querySelector(".keyboard-modal");
-        const modalCloseBtn = modal.querySelector(".keyboard-modal-closeBtn");
+        const modal = modalOpenBtn.closest("article").querySelector(`.${KeyboardModalStyle.keyboardModal}`);
+        const modalCloseBtn = modal.querySelector(`.${KeyboardModalStyle.keyboardModalCloseBtn}`);
 
         modalOpenBtn.addEventListener("click", () => {
-            modal.classList.add("keyboard-modal-active");
+            modal.classList.add(KeyboardModalStyle.keyboardModalActive);
         });
 
         modalCloseBtn.addEventListener("click", () => {
-            modal.classList.remove("keyboard-modal-active");
+            modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
         });
 
         window.addEventListener("click", (evt) => {
             if (evt.target === modal) {
-                modal.classList.remove("keyboard-modal-active");
+                modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
             }
         });
     });
@@ -55,7 +56,7 @@ const CustomKeyboardPage = () => {
                                 Light to press yet tactile, comfortable to type and not fatiguing to game with.
                             </KeyboardCard>
 
-                            <KeyboardModal title={"Tofu60"} src={"Tofu60/My%20Tofu60%2016x9.jpg"}>
+                            <KeyboardModal title={"Tofu60"} src={"Tofu60/My%20Tofu60%2016x9.jpg"} Style={KeyboardModalStyle}>
                                 <div className="tofu60-intro">
                                     <h2>Intro</h2>
                                     <p>
