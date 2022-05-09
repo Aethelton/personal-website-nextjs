@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import useMedia from "../hooks/useMedia";
 import Style from "../styles/Navbar.module.css";
-
+import Image from "next/image";
+import navLogo from "../public/Logo.png";
 
 const smoothScrollToTop = () => {
     document.body.scrollTo({
@@ -62,7 +63,7 @@ const Navbar = () => {
         <nav>
             <Link href={"/"}>
                 <a style={{height: "80%"}}>
-                    <img id="nav-logo" style={{borderRadius: "50%", height: "100%"}} src="/Logo.png" alt="Logo" />
+                    <Image id="nav-logo" style={{borderRadius: "50%", width: "auto", height: "100%"}} src={navLogo} layout={"raw"} placeholder={"blur"} alt={"Logo"} />
                 </a>
             </Link>
 
