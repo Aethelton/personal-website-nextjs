@@ -4,6 +4,16 @@ import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
 import FleckBG from "../components/FleckBG";
 
+import BatmanLastCrusadeImage from "../public/Project Images/Batman Last Crusade Image.png";
+import ChessFSEImage from "../public/Project Images/ChessFSE Image.png";
+import JimmyImage from "../public/Project Images/Jimmy Image.png";
+import MatrixOfHeroesImage from "../public/Project Images/Matrix of Heroes Image.png";
+import OverPaintImage from "../public/Project Images/OverPaint Image.png";
+import TronImage from "../public/Project Images/Tron Image.png";
+import VerticalCarouselImage from "../public/Project Images/Vertical Carousel Image.png";
+import DataStructuresImage from "../public/Project Images/Data Structures Image.jpg";
+import RetroTaskerImage from "../public/Project Images/Retro Tasker Image.png";
+
 const fleckColours = [
     "hsl(83, 33%, 76%)",
     "hsl(83, 33%, 66%)",
@@ -37,7 +47,7 @@ const WorksPage = () => {
                     <section id="project-container">
                         <ProjectCard
                             title={"Batman: Last Crusade"}
-                            src={"Batman%20Last%20Crusade%20Image.png"}
+                            src={BatmanLastCrusadeImage}
                             href={"https://github.com/SuperMage03/Batman-Last-Crusade"}
                         >
                             Made for my Grade 11 FSE from Unity. The game is about using grappling and gliding to
@@ -48,7 +58,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"ChessFSE"}
-                            src={"ChessFSE%20Image.png"}
+                            src={ChessFSEImage}
                             href={"https://github.com/SuperMage03/ChessFSE"}
                         >
                             This Chess game is created for my Grade 12 FSE. It has an AI run by Minimax and
@@ -59,7 +69,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"Jimmy"}
-                            src={"Jimmy%20Image.png"}
+                            src={JimmyImage}
                             href={"https://github.com/SuperMage03/Jimmy"}
                         >
                             Jimmy is an FPS game I created with my friend Shengbuo for my school&apos;s 7 Week Challenge
@@ -71,7 +81,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"Matrix of Heroes"}
-                            src={"Matrix%20of%20Heroes%20Image.png"}
+                            src={MatrixOfHeroesImage}
                             href={"https://github.com/SuperMage03/Matrix-of-Heroes"}
                         >
                             Matrix of Heroes is made from Unity with Shengbuo, Angela, and Lily. We created this
@@ -83,7 +93,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"OverPaint"}
-                            src={"OverPaint%20Image.png"}
+                            src={OverPaintImage}
                             href={"https://github.com/SuperMage03/OverPaint"}
                         >
                             This is an Overwatch themed MS Paint like program I built during my Grade 11 Comp Sci
@@ -95,7 +105,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"Tron"}
-                            src={"Tron%20Image.png"}
+                            src={TronImage}
                             href={"https://github.com/SuperMage03/Tron"}
                         >
                             This is my vision of the classic Arcade game Tron. Built from Java Swing, the game has
@@ -107,7 +117,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"Vertical Carousel"}
-                            src={"Vertical%20Carousel%20Image.png"}
+                            src={VerticalCarouselImage}
                             href={"https://github.com/SuperMage03/Responsive-Vertical-Carousel"}
                         >
                             This is a simple Vertical Carousel Plugin that allows pictures to be looped, and only loads
@@ -117,7 +127,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"Java Data Structures"}
-                            src={"Data%20Structures%20Image.jpg"}
+                            src={DataStructuresImage}
                             href={"https://github.com/SuperMage03/Data-Structures-from-Scratch"}
                         >
                             This is my adventure to build data structures from scratch. I always wanted to see how
@@ -129,7 +139,7 @@ const WorksPage = () => {
 
                         <ProjectCard
                             title={"Retro Tasker"}
-                            src={"Retro%20Tasker%20Image.png"}
+                            src={RetroTaskerImage}
                             href={"https://github.com/SuperMage03/Retro-Tasker"}
                         >
                             This is my first web app created for my school&apos;s 7 Week Challenge Web Dev Week. Retro

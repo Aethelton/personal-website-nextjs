@@ -106,7 +106,7 @@ const CustomKeyboardPage = () => {
                                             housing wobble for better sounding.
                                         </p>
                                         <div className={"tofu60-switch-image"}>
-                                            <Image src={tofu60Switch} alt={"Tofu60 Switches"} layout={"fill"} objectFit={"cover"} />
+                                            <Image src={tofu60Switch} alt={"Tofu60 Switches"} layout={"fill"} objectFit={"cover"} placeholder={"blur"} />
                                         </div>
                                     </div>
 

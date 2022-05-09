@@ -46,6 +46,7 @@ const AboutPage = () => {
                                     src={portraitPic}
                                     alt={"My Portrait"}
                                     layout={"responsive"}
+                                    placeholder={"blur"}
                                 />
                             </div>
 

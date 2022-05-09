@@ -13,7 +13,7 @@ const KeyboardModal = (props) => {
 
                 <div className="keyboard-modal-body">
                     <div className={props.Style.keyboardModalBanner}>
-                        <Image src={props.src} alt={props.title} layout={"responsive"} objectFit={"cover"} />
+                        <Image src={props.src} alt={props.title} layout={"responsive"} objectFit={"cover"} placeholder={"blur"} />
                         <div className={props.Style.keyboardModalBannerText}>
                             <h3>Keyboard Showcase</h3>
                             <h1>{props.title}</h1>

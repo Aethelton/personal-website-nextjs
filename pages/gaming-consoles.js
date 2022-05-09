@@ -154,13 +154,13 @@ const GamingConsoles = () => {
                                     onSwiper={(swiper) => SwiperControllers.current.push(swiper)}
                             >
                                 <SwiperSlide className="swiper-slide">
-                                    <Image src={xbox360SlimCarouselPic1} alt="My Xbox 360 Slim" layout={"responsive"} />
+                                    <Image src={xbox360SlimCarouselPic1} alt="My Xbox 360 Slim" layout={"responsive"} placeholder={"blur"} />
                                 </SwiperSlide>
                                 <SwiperSlide className="swiper-slide">
-                                    <Image src={xbox360SlimCarouselPic2} alt="Ace V3" layout={"responsive"} />
+                                    <Image src={xbox360SlimCarouselPic2} alt="Ace V3" layout={"responsive"} placeholder={"blur"} />
                                 </SwiperSlide>
                                 <SwiperSlide className="swiper-slide">
-                                    <Image src={xbox360SlimCarouselPic3} alt="Viper Dual Nand" layout={"responsive"} />
+                                    <Image src={xbox360SlimCarouselPic3} alt="Viper Dual Nand" layout={"responsive"} placeholder={"blur"} />
                                 </SwiperSlide>
 
                                 <div className="swiper-pagination"/>

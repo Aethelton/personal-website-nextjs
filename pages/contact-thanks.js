@@ -36,6 +36,7 @@ const ContactThanksPage = () => {
                         alt={"Mail Sent Icon"}
                         style={{height: "23vh", minHeight: "125px", width: "auto", objectFit: "contain"}}
                         layout={"raw"}
+                        placeholder={"blur"}
                     />
 
                     <h2 style={HeaderStyle}>
