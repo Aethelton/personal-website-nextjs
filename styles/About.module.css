@@ -19,14 +19,14 @@
     padding-bottom: 40px;
 }
 
-.aboutMeSection > img {
+.myPortrait {
     width: 40%;
     margin: auto;
     box-shadow: 0 0 10px var(--darkPeachColour);
     animation: aboutMeImage 600ms;
 }
 
-.aboutMeSection > div {
+.dividerLine {
     background-color: var(--greenColour);
     width: 2px;
     margin-right: 20px;
@@ -62,11 +62,11 @@
         align-items: center;
     }
 
-    .aboutMeSection > img {
+    .myPortrait {
         margin: auto auto 20px;
     }
 
-    .aboutMeSection > div {
+    .dividerLine {
         width: 90%;
         height: 2px;
         margin-right: 0;

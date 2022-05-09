@@ -9,6 +9,12 @@ import {useEffect, useRef, useState} from "react";
 import GamingConsoleContent from "../components/GamingConsoleContent";
 import Style from "../styles/GamingConsole.module.css";
 
+import xbox360SlimCardCover from "../public/Gaming Console Images/Xbox 360 Slim/My Xbox 360 Slim.jpg";
+import xbox360SlimCarouselPic1 from "../public/Gaming Console Images/Xbox 360 Slim/My Xbox 360 Slim 16x9.jpg";
+import xbox360SlimCarouselPic2 from "../public/Gaming Console Images/Xbox 360 Slim/Ace V3.jpg";
+import xbox360SlimCarouselPic3 from "../public/Gaming Console Images/Xbox 360 Slim/Viper Dual Nand Close-Up.jpg";
+import Image from "next/image";
+
 
 const CardCarouselOptions = {
     direction: 'horizontal',
@@ -126,7 +132,7 @@ const GamingConsoles = () => {
                     <h1>My Collection</h1>
                     <Swiper className={Style.consoleCollectionCarousel} {...CardCarouselOptions}>
                         <SwiperSlide>
-                            <GamingConsoleSlide title={"Xbox 360 Slim"} src={"Xbox%20360%20Slim/My%20Xbox%20360%20Slim.jpg"} Style={Style}>
+                            <GamingConsoleSlide title={"Xbox 360 Slim"} src={xbox360SlimCardCover} Style={Style}>
                                 Xbox 360, Dual Nand, S-RGH with SMC+
                             </GamingConsoleSlide>
                         </SwiperSlide>
@@ -148,18 +154,13 @@ const GamingConsoles = () => {
                                     onSwiper={(swiper) => SwiperControllers.current.push(swiper)}
                             >
                                 <SwiperSlide className="swiper-slide">
-                                    <img
-                                        src="/Gaming%20Console%20Images/Xbox%20360%20Slim/My%20Xbox%20360%20Slim%2016x9.jpg"
-                                        alt="My Xbox 360 Slim"/>
+                                    <Image src={xbox360SlimCarouselPic1} alt="My Xbox 360 Slim" layout={"responsive"} />
                                 </SwiperSlide>
                                 <SwiperSlide className="swiper-slide">
-                                    <img src="/Gaming%20Console%20Images/Xbox%20360%20Slim/Ace%20V3.jpg"
-                                         alt="Ace V3"/>
+                                    <Image src={xbox360SlimCarouselPic2} alt="Ace V3" layout={"responsive"} />
                                 </SwiperSlide>
                                 <SwiperSlide className="swiper-slide">
-                                    <img
-                                        src="/Gaming%20Console%20Images/Xbox%20360%20Slim/Viper%20Dual%20Nand%20Close-Up.jpg"
-                                        alt="Viper Dual Nand"/>
+                                    <Image src={xbox360SlimCarouselPic3} alt="Viper Dual Nand" layout={"responsive"} />
                                 </SwiperSlide>
 
                                 <div className="swiper-pagination"/>

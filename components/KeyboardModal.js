@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const KeyboardModal = (props) => {
     return (
         <div className={props.Style.keyboardModal}>
@@ -11,7 +13,7 @@ const KeyboardModal = (props) => {
 
                 <div className="keyboard-modal-body">
                     <div className={props.Style.keyboardModalBanner}>
-                        <img src={`/Custom%20Keyboard%20Images/${props.src}`} alt={props.title}/>
+                        <Image src={props.src} alt={props.title} layout={"responsive"} objectFit={"cover"} />
                         <div className={props.Style.keyboardModalBannerText}>
                             <h3>Keyboard Showcase</h3>
                             <h1>{props.title}</h1>

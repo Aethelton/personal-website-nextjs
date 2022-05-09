@@ -1,10 +1,15 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
 import KeyboardCard from "../components/KeyboardCard";
 import KeyboardModal from "../components/KeyboardModal";
 import KeyboardModalStyle from "../styles/KeyboardModal.module.css";
+
+import tofu60Switch from "../public/Custom Keyboard Images/Tofu60/My Tofu60 Switches.jpg";
+import tofu60CardCover from "../public/Custom Keyboard Images/Tofu60/My Tofu60.jpg";
+import tofu60ModalHeader from "../public/Custom Keyboard Images/Tofu60/My Tofu60 16x9.jpg";
 
 
 const initializeKeyboardModal = () => {
@@ -51,12 +56,12 @@ const CustomKeyboardPage = () => {
                     <h1>My Keyboard</h1>
                     <div>
                         <article id="tofu60-article">
-                            <KeyboardCard title={"Tofu60"} src={"Tofu60/My%20Tofu60.jpg"}>
+                            <KeyboardCard title={"Tofu60"} src={tofu60CardCover}>
                                 My first ever build, a Tofu60 with 1976 colour wave.
                                 Light to press yet tactile, comfortable to type and not fatiguing to game with.
                             </KeyboardCard>
 
-                            <KeyboardModal title={"Tofu60"} src={"Tofu60/My%20Tofu60%2016x9.jpg"} Style={KeyboardModalStyle}>
+                            <KeyboardModal title={"Tofu60"} src={tofu60ModalHeader} Style={KeyboardModalStyle}>
                                 <div className="tofu60-intro">
                                     <h2>Intro</h2>
                                     <p>
@@ -100,9 +105,9 @@ const CustomKeyboardPage = () => {
                                             smoothness, it&apos;s also filmed with Deskey films to reduce
                                             housing wobble for better sounding.
                                         </p>
-                                        <img
-                                            src="/Custom%20Keyboard%20Images/Tofu60/My%20Tofu60%20Switches.jpg"
-                                            alt="Tofu60 Switches"/>
+                                        <div className={"tofu60-switch-image"}>
+                                            <Image src={tofu60Switch} alt={"Tofu60 Switches"} layout={"fill"} objectFit={"cover"} />
+                                        </div>
                                     </div>
 
                                     <h3>Plate</h3>

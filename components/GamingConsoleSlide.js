@@ -1,8 +1,11 @@
+import Image from "next/image";
+
 const GamingConsoleSlide = (props) => {
     return (
         <>
-            <img src={`/Gaming%20Console%20Images/${props.src}`} alt={props.title}/>
-            <div>
+            <Image src={props.src} alt={props.title} className={props.Style.consoleCarouselCardCover} layout={"raw"} />
+
+            <div className={props.Style.consoleCarouselCardTextBox}>
                 <h3 className={props.Style.consoleCarouselText}>{props.children}</h3>
             </div>
         </>

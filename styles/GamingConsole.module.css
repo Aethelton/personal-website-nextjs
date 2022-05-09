@@ -120,12 +120,13 @@
     background-color: hsla(44, 87%, 94%, 0.4);
 }
 
-.consoleCollectionCarousel :global(.swiper-slide) > img {
+.consoleCarouselCardCover {
     display: block;
-    object-fit: cover;
-    object-position: center;
+    width: auto;
     height: 100%;
     user-select: none;
+    object-fit: cover;
+    object-position: center;
 }
 
 .consoleCollectionCarousel :global(.swiper-slide)::after {
@@ -144,7 +145,7 @@
     background-color: hsla(44, 87%, 89%, 0.1);
 }
 
-.consoleCollectionCarousel :global(.swiper-slide) > div {
+.consoleCarouselCardTextBox {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -244,7 +245,7 @@
     background-color: hsla(44, 87%, 94%, 0.4);
 }
 
-.consoleModalCarousel :global(.swiper-slide) > img {
+.consoleModalCarousel :global(.swiper-slide) img {
     display: block;
     width: 100%;
 }
@@ -304,15 +305,15 @@
 }
 
 @media screen and (max-width: 768px) {
-    .console-collection-carousel :global(.swiper-slide) {
+    .consoleCollectionCarousel :global(.swiper-slide) {
         width: 90%;
     }
 
-    .console-collection-carousel :global(.swiper-slide) > img {
-        width: 100%;
+    .consoleCarouselCardTextBox {
+        padding: 1rem;
     }
 
-    .console-collection-carousel :global(.swiper-slide) > div {
-        padding: 1rem;
+    .consoleCarouselCardCover {
+        width: 100%;
     }
 }
