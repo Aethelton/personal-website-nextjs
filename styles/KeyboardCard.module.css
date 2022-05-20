@@ -1,0 +1,72 @@
+.keyboardCard {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    width: 80%;
+    max-width: 40rem;
+    margin: 2.2rem auto;
+
+    background: linear-gradient(to bottom left, hsla(354, 43%, 65%, 0.3), hsla(44, 87%, 89%, 0.3));
+    border-radius: 10px;
+
+    border: solid 1px hsla(44, 87%, 94%, 0.6);
+    box-shadow: 0 0 8px var(--peachColour);
+
+    transition: transform 150ms ease-in-out;
+}
+
+.keyboardCard:hover {
+    transform: scale(1.03);
+}
+
+.keyboardCard > img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.keyboardCard > h2 {
+    margin-top: 5px;
+    padding: 0 10px;
+    font-family: var(--cursiveFont), "cursive";
+    color: var(--darkPeachColour);
+    letter-spacing: 1px;
+}
+
+.keyboardCard > p {
+    margin-top: 5px;
+    padding: 0 10px;
+    font-size: 0.92rem;
+    font-family: var(--secondaryFont), "sans-serif";
+    color: hsla(44, 87%, 94%, 0.9);
+    font-weight: bold;
+}
+
+.keyboardCard > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px 10px;
+
+    width: 7rem;
+    height: 2.5rem;
+    cursor: pointer;
+
+    background-color: hsla(83, 33%, 56%, 0.5);
+    color: hsla(354, 43%, 65%, 0.8);
+    border-radius: 5px;
+
+    font-family: var(--secondaryFont), "sans-serif";
+    font-size: 0.92em;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+
+    transition: background-color 200ms ease-in-out;
+}
+
+.keyboardCard > button:hover {
+    background-color: hsla(83, 33%, 66%, 0.7);
+}

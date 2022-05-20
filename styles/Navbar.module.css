@@ -1,0 +1,245 @@
+/* NAV LINKS */
+.navLinks {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 35%;
+}
+
+
+.navLinks li {
+    display: flex;
+    justify-content: center;
+
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.navLinks a {
+    margin: 0 8px;
+    padding: 20px 0;
+    vertical-align: middle;
+    color: var(--pinkColour);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navLinks > li {
+    position: relative;
+}
+
+.navLinks > li > a::before {
+    content: "";
+    display: block;
+
+    height: 3px;
+    width: 90%;
+    border-radius: 5px;
+
+    background-color: var(--pinkColour);
+
+    position: absolute;
+    left: 57%;
+    bottom: 15px;
+
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: 43% 50%;
+
+    transition: transform 250ms;
+}
+
+.navLinks > li > a:hover::before {
+    transform: translateX(-57%) scaleX(1);
+}
+
+/* NAV BURGER */
+.navBurger {
+    display: none;
+}
+
+.navBurger div {
+    background-color: var(--pinkColour);
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+
+/* NAV EXPANDABLE LIST */
+.navExpandableList > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: absolute;
+    top: 50px;
+    left: 0;
+
+    width: 200%;
+
+    background-color: var(--peachColour);
+
+    border-radius: 5px;
+    letter-spacing: 0;
+
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 250ms ease-in-out;
+}
+
+.navExpandableList > a::after {
+    content: "\f107";
+    padding-left: 5px;
+    font-family: FontAwesome, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: var(--greenColour);
+}
+
+.navExpandableList > ul > li > a {
+    padding: 10px;
+    color: var(--greenColour);
+}
+
+.navExpandableList:hover > ul {
+    transform: scaleY(1);
+}
+
+
+/* Mid width size screen */
+@media screen and (max-width: 1250px) {
+    .navLinks {
+        width: 56.5%;
+    }
+
+    .navLinks a {
+        margin: 0 8px;
+        color: var(--pinkColour);
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* NAV LINKS */
+    .navLinks {
+        position: absolute;
+        right: 0;
+        top: var(--navbar-height);
+
+        width: 100%;
+        height: calc(100vh - var(--navbar-height));
+
+        background-color: var(--peachColour);
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .navLinks > * {
+        padding: 10px;
+    }
+
+    .navLinks li {
+        display: block;
+    }
+
+    .navLinks > li {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    .navLinks a {
+        padding: 0;
+    }
+
+    .navLinks > li > a::before {
+        content: "";
+        display: none;
+    }
+
+    .navLinksActive {
+        transform: translateX(0%);
+    }
+
+
+    /* NAV BURGER ICON */
+    .navBurger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navBurger > div:nth-child(1),
+    .navBurger > div:nth-child(2),
+    .navBurger > div:nth-child(3) {
+        transition: all 0.5s;
+    }
+
+    .navBurgerActive > div:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 5px);
+    }
+
+    .navBurgerActive > div:nth-child(2) {
+        background-color: transparent;
+        box-shadow: none;
+        transform: translateX(-20px);
+    }
+
+    .navBurgerActive > div:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+
+    /* NAV EXPANDABLE LIST */
+    .navExpandableList > ul {
+        display: flex;
+        flex-direction: column;
+        position: static;
+
+        margin-left: 2vw;
+        margin-top: 5px;
+
+        max-height: 0;
+
+        transform: scale(1, 0) !important;
+        transform-origin: top;
+
+        transition-property: max-height, transform;
+        transition-duration: 400ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    .navExpandableList > ul > li > a {
+        padding: 0;
+    }
+
+    .navExpandableListActive > a:after {
+        content: "\f106";
+    }
+
+    .navExpandableListActive > ul {
+        max-height: 100vh;
+        transform: scale(1, 1) !important;
+    }
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

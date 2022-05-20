@@ -1,0 +1,93 @@
+.keyboardModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    padding: 1.25rem 0;
+    z-index: 999;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    pointer-events: none;
+    opacity: 0;
+
+    transition: opacity 250ms ease-in-out;
+}
+
+.keyboardModalActive {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.keyboardModalContent {
+    border-radius: 7px;
+    background-color: var(--peachColour);
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 8px 0 hsla(44, 87%, 94%, 0.3), 0 7px 20px 0 hsla(44, 87%, 94%, 0.3);
+    /*border: solid 1px var(--peachColour);*/
+
+    transform-origin: center;
+    transform: scale(0.2);
+
+    overflow: hidden;
+    transition: transform 250ms linear;
+}
+
+.keyboardModalActive > .keyboardModalContent {
+    transform: scale(1);
+}
+
+.keyboardModalCloseBtn {
+    color: var(--greenColour);
+}
+
+.keyboardModalCloseBtn:hover {
+    color: var(--darkGreenColour);
+}
+
+.keyboardModalBanner {
+    position: relative;
+    width: 100%;
+}
+
+.keyboardModalBanner > img {
+    display: block;
+    width: 100%;
+}
+
+.keyboardModalBannerText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--ivoryColour);
+}
+
+.keyboardModalBannerText > h1 {
+    text-transform: uppercase;
+    font-family: var(--cursiveSerifFont), "cursive";
+    font-size: 3rem;
+}
+
+.keyboardModalBannerText > h3 {
+    text-transform: uppercase;
+    font-family: var(--secondaryFont), "sans-serif";
+    font-size: 0.9rem;
+}

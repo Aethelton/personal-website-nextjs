@@ -1,29 +1,38 @@
 import Head from "next/head";
+import Image from "next/image";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
-import {useEffect} from "react";
 import KeyboardCard from "../components/KeyboardCard";
 import KeyboardModal from "../components/KeyboardModal";
+import KeyboardModalStyle from "../styles/KeyboardModal.module.css";
+
+import tofu60Switch from "../public/Custom Keyboard Images/Tofu60/My Tofu60 Switches.jpg";
+import tofu60CardCover from "../public/Custom Keyboard Images/Tofu60/My Tofu60.jpg";
+import tofu60ModalHeader from "../public/Custom Keyboard Images/Tofu60/My Tofu60 16x9.jpg";
 
 
 const initializeKeyboardModal = () => {
     const modalOpenBtns = document.querySelectorAll(".keyboard-modal-openBtn");
 
     modalOpenBtns.forEach(modalOpenBtn => {
-        const modal = modalOpenBtn.closest("article").querySelector(".keyboard-modal");
-        const modalCloseBtn = modal.querySelector(".keyboard-modal-closeBtn");
+        const modal = modalOpenBtn.closest("article").querySelector(`.${KeyboardModalStyle.keyboardModal}`);
+        const modalCloseBtn = modal.querySelector(`.${KeyboardModalStyle.keyboardModalCloseBtn}`);
 
         modalOpenBtn.addEventListener("click", () => {
-            modal.classList.add("keyboard-modal-active");
+            modal.classList.add(KeyboardModalStyle.keyboardModalActive);
+            document.body.style.overflowY = "hidden";
         });
 
         modalCloseBtn.addEventListener("click", () => {
-            modal.classList.remove("keyboard-modal-active");
+            modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
+            document.body.style.overflowY = "initial";
         });
 
         window.addEventListener("click", (evt) => {
             if (evt.target === modal) {
-                modal.classList.remove("keyboard-modal-active");
+                modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
+                document.body.style.overflowY = "initial";
             }
         });
     });
@@ -50,12 +59,12 @@ const CustomKeyboardPage = () => {
                     <h1>My Keyboard</h1>
                     <div>
                         <article id="tofu60-article">
-                            <KeyboardCard title={"Tofu60"} src={"Tofu60/My%20Tofu60.jpg"}>
+                            <KeyboardCard title={"Tofu60"} src={tofu60CardCover}>
                                 My first ever build, a Tofu60 with 1976 colour wave.
                                 Light to press yet tactile, comfortable to type and not fatiguing to game with.
                             </KeyboardCard>
 
-                            <KeyboardModal title={"Tofu60"} src={"Tofu60/My%20Tofu60%2016x9.jpg"}>
+                            <KeyboardModal title={"Tofu60"} src={tofu60ModalHeader} Style={KeyboardModalStyle}>
                                 <div className="tofu60-intro">
                                     <h2>Intro</h2>
                                     <p>
@@ -99,9 +108,7 @@ const CustomKeyboardPage = () => {
                                             smoothness, it&apos;s also filmed with Deskey films to reduce
                                             housing wobble for better sounding.
                                         </p>
-                                        <img
-                                            src="/Custom%20Keyboard%20Images/Tofu60/My%20Tofu60%20Switches.jpg"
-                                            alt="Tofu60 Switches"/>
+                                        <Image src={tofu60Switch} alt={"Tofu60 Switches"} layout={"raw"} placeholder={"blur"} />
                                     </div>
 
                                     <h3>Plate</h3>

@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
+import Style from "../styles/Overwatch.module.css";
 
 
 class OWProfile {
@@ -21,24 +22,29 @@ class Role {
     constructor(role, data) {
         const roleIndex = {"tank": 0, "damage": 1, "support": 2};
         this.role = role;
-        this.roleIcon = data["ratings"][roleIndex[role]]["roleIcon"];
-        this.rankIcon = data["ratings"][roleIndex[role]]["rankIcon"];
-        this.sr = data["ratings"][roleIndex[role]]["level"];
+
+        try {
+            this.roleIcon = data["ratings"][roleIndex[role]]["roleIcon"];
+            this.rankIcon = data["ratings"][roleIndex[role]]["rankIcon"];
+            this.sr = data["ratings"][roleIndex[role]]["level"];
+        } catch (e) {
+            this.roleIcon = null;
+            this.rankIcon = null;
+            this.sr = null;
+        }
     }
 }
 
-const addHeader = (parentNode, headerType, innerText, id = "", className = "") => {
+const addHeader = (parentNode, headerType, innerText, className = "") => {
     const newNode = document.createElement(headerType);
-    newNode.id = id;
     newNode.className = className;
     newNode.innerText = innerText;
     parentNode.appendChild(newNode);
     return newNode;
 };
 
-const addImg = (parentNode, src, alt, id = "", className = "") => {
+const addImg = (parentNode, src, alt, className = "") => {
     const newNode = document.createElement("img");
-    newNode.id = id;
     newNode.className = className;
     newNode.src = src;
     newNode.alt = alt;
@@ -46,9 +52,8 @@ const addImg = (parentNode, src, alt, id = "", className = "") => {
     return newNode;
 };
 
-const addDiv = (parentNode, bgImg = "", innerText = "", id = "", className = "") => {
+const addDiv = (parentNode, bgImg = "", innerText = "", className = "") => {
     const newNode = document.createElement("div");
-    newNode.id = id;
     newNode.className = className;
     newNode.innerText = innerText;
     newNode.style.backgroundImage = bgImg !== "" ? `url(${bgImg})` : "none";
@@ -59,27 +64,30 @@ const addDiv = (parentNode, bgImg = "", innerText = "", id = "", className = "")
 
 const displayOWProfile = (data) => {
     const myOWProfile = new OWProfile(data);
-    const owStatsContainer = document.getElementById("ow-stats-content");
+    const owStatsContainer = document.querySelector(`.${Style.owStatsContent}`);
 
     // Adds to the Stats Container
-    addImg(owStatsContainer, myOWProfile.icon, "Player Icon", "ow-profile-icon");
-    addHeader(owStatsContainer, "h1", myOWProfile.name, "ow-username");
-    addHeader(owStatsContainer, "h3", myOWProfile.wins + " Games Won", "ow-games-won");
-    addDiv(owStatsContainer, myOWProfile.border, myOWProfile.level, "ow-level");
-    const srContainer = addDiv(owStatsContainer, "", "", "ow-sr-container");
+    addImg(owStatsContainer, myOWProfile.icon, "Player Icon", Style.owProfileIcon);
+    addHeader(owStatsContainer, "h1", myOWProfile.name, Style.owUsername);
+    addHeader(owStatsContainer, "h3", myOWProfile.wins + " Games Won", Style.owGamesWon);
+    addDiv(owStatsContainer, myOWProfile.border, myOWProfile.level, Style.owLevel);
+
+    if (myOWProfile.tank.rankIcon === null) { return; }
+
+    const srContainer = addDiv(owStatsContainer, "", "", Style.owSrContainer);
 
     // Adds to Main SR Container
     const individualSRContainers = {
-        tank: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container"),
-        damage: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container"),
-        support: addDiv(srContainer, "", "", "", "ow-individual-role-sr-container")
+        tank: addDiv(srContainer, "", "", Style.owIndividualRoleSrContainer),
+        damage: addDiv(srContainer, "", "", Style.owIndividualRoleSrContainer),
+        support: addDiv(srContainer, "", "", Style.owIndividualRoleSrContainer)
     };
 
     // Adds to individual SR Containers
     for (const [role, containerNode] of Object.entries(individualSRContainers)) {
-        addImg(containerNode, myOWProfile[role].roleIcon, `${role} Role Icon`, "", "ow-role-icon");
-        addImg(containerNode, myOWProfile[role].rankIcon, `${role} Rank Icon`, "", "ow-rank-icon");
-        addHeader(containerNode, "h4", myOWProfile[role].sr, "", "ow-role-sr-text");
+        addImg(containerNode, myOWProfile[role].roleIcon, `${role} Role Icon`, Style.owRoleIcon);
+        addImg(containerNode, myOWProfile[role].rankIcon, `${role} Rank Icon`, Style.owRankIcon);
+        addHeader(containerNode, "h4", myOWProfile[role].sr, Style.owRoleSrText);
     }
 }
 
@@ -93,8 +101,20 @@ export const getServerSideProps = async () => {
     });
     const data = await res.json();
 
+    // This is if I want to implement default Overwatch Rank Stats if I'm not placed
+    // if (data["ratings"] === null) {
+    //     data["ratings"] = [{}, {}, {}];
+    //     data["ratings"][0]["roleIcon"] = "/Default%20Overwatch%20Assets/tank_icon.png";
+    //     data["ratings"][1]["roleIcon"] = "/Default%20Overwatch%20Assets/damage_icon.png";
+    //     data["ratings"][2]["roleIcon"] = "/Default%20Overwatch%20Assets/support_icon.png";
+    //
+    //     data["ratings"][0]["rankIcon"] = "/Default%20Overwatch%20Assets/masters_icon.png";
+    //     data["ratings"][1]["rankIcon"] = "/Default%20Overwatch%20Assets/masters_icon.png";
+    //     data["ratings"][2]["rankIcon"] = "/Default%20Overwatch%20Assets/masters_icon.png";
+    // }
+
     // Pass data to the page via props
-    return {props: {data}}
+    return { props: {data} }
 };
 
 const OverwatchArrow = () => {
@@ -125,10 +145,10 @@ const OverwatchPage = ({ data }) => {
             </header>
 
             <main>
-                <section id="ow-stats-container">
-                    <div id="ow-stats-bg"/>
-                    <div id="ow-stats-content"/>
-                    <i id="ow-dropdown-arrow" className="fas fa-angle-down" onClick={OverwatchArrow} />
+                <section className={Style.owStatsContainer}>
+                    <div className={Style.owStatsBg}/>
+                    <div className={Style.owStatsContent}/>
+                    <i className={`fas fa-angle-down ${Style.owDropdownArrow}`} onClick={OverwatchArrow} />
                 </section>
             </main>
 

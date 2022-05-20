@@ -2,6 +2,8 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
 import FleckBG from "../components/FleckBG";
+import Style from "../styles/Contact.module.css";
+
 
 const fleckColours = [
     "hsl(83, 33%, 76%)",
@@ -24,7 +26,7 @@ const ContactPage = () => {
             </header>
 
             <main style={{display: "flex", backgroundColor: "transparent"}}>
-                <div id="contact-container" style={{position: "relative", width: "100%", overflow: "hidden"}}>
+                <div className={Style.contactContainer} style={{position: "relative", width: "100%", overflow: "hidden"}}>
                     <FleckBG
                         bgColour={"ivory"}
                         fleckSeed={123449}
@@ -33,24 +35,24 @@ const ContactPage = () => {
                         fleckColours={fleckColours}
                     />
                     <form action="https://formsubmit.co/contact@estonli.ca" method="POST">
-                        <div id="contact-name">
-                            <div className="contact-form-group">
+                        <div className={Style.contactName}>
+                            <div className={Style.contactFormGroup}>
                                 <label htmlFor="first-name">First Name</label>
                                 <input id="first-name" type="text" name="first-name" required/>
                             </div>
 
-                            <div className="contact-form-group">
+                            <div className={Style.contactFormGroup}>
                                 <label htmlFor="last-name">Last Name</label>
                                 <input id="last-name" type="text" name="last-name" required/>
                             </div>
                         </div>
 
-                        <div className="contact-form-group">
+                        <div className={Style.contactFormGroup}>
                             <label htmlFor="email">E-Mail</label>
                             <input id="email" type="email" name="email" required/>
                         </div>
 
-                        <div className="contact-form-group">
+                        <div className={Style.contactFormGroup}>
                             <label htmlFor="message">Message</label>
                             <textarea id="message" name="message" cols="30" rows="10" required/>
                         </div>

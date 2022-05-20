@@ -1,8 +1,11 @@
 import Head from "next/head";
+import Image from "next/image";
 import FooterInfo from "../components/FooterInfo";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import FleckBG from "../components/FleckBG";
+import Style from "../styles/About.module.css";
+import portraitPic from "../public/About Me Picture.jpg";
 
 const fleckColours = [
     "hsl(83, 33%, 76%)",
@@ -35,11 +38,19 @@ const AboutPage = () => {
                     />
 
                     <div>
-                        <h1 id="about-me-header">Hi There!</h1>
+                        <h1 className={Style.aboutMeHeader}>Hi There!</h1>
 
-                        <section id="about-me-section">
-                            <img src="/About%20Me%20Picture.jpg" alt="My Portrait" />
-                            <div/>
+                        <section className={Style.aboutMeSection}>
+                            <div className={Style.myPortrait}>
+                                <Image
+                                    src={portraitPic}
+                                    alt={"My Portrait"}
+                                    layout={"responsive"}
+                                    placeholder={"blur"}
+                                />
+                            </div>
+
+                            <div className={Style.dividerLine} />
                             <p>
                                 Hi, I&apos;m a student from Windsor, Ontario that loves Programming and Video Games.
                                 <br/><br/>

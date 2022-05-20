@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import useMedia from "../hooks/useMedia";
-
+import Style from "../styles/Navbar.module.css";
+import Image from "next/image";
+import navLogo from "../public/Logo.png";
 
 const smoothScrollToTop = () => {
     document.body.scrollTo({
@@ -22,7 +24,7 @@ const Navbar = () => {
     const phoneMedia = useMedia("(max-width: 768px)");
 
     useEffect(() => {
-        navLinks.current = navLinkRef.current.querySelectorAll(".nav-links > li");
+        navLinks.current = navLinkRef.current.querySelectorAll(`.${Style.navLinks} > li`);
         document.body.classList.remove("lock-scroll");
     }, []);
 
@@ -33,14 +35,14 @@ const Navbar = () => {
 
     const toggleNavExpandable = (ref) => {
         if (ref.current != null) {
-            ref.current.classList.toggle("nav-expandable-list-active");
+            ref.current.classList.toggle(Style.navExpandableListActive);
         }
     };
 
     const toggleNavbar = () => {
-        if (!navLinkRef.current.classList.contains("nav-links-active")) {
+        if (!navLinkRef.current.classList.contains(Style.navLinksActive)) {
             navLinks.current.forEach((link, index) => {
-                link.style.setProperty("animation", `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`);
+                link.style.setProperty("animation", `${Style.navLinkFade} 0.5s ease forwards ${index / 7 + 0.5}s`);
             });
         }
 
@@ -50,8 +52,8 @@ const Navbar = () => {
             });
         }
 
-        navLinkRef.current.classList.toggle("nav-links-active");
-        navBurgerRef.current.classList.toggle("nav-burger-active");
+        navLinkRef.current.classList.toggle(Style.navLinksActive);
+        navBurgerRef.current.classList.toggle(Style.navBurgerActive);
         document.body.classList.toggle("lock-scroll");
 
         smoothScrollToTop();
@@ -61,11 +63,11 @@ const Navbar = () => {
         <nav>
             <Link href={"/"}>
                 <a style={{height: "80%"}}>
-                    <img id="nav-logo" style={{borderRadius: "50%", height: "100%"}} src="/Logo.png" alt="Logo" />
+                    <Image id="nav-logo" style={{borderRadius: "50%", width: "auto", height: "100%"}} src={navLogo} layout={"raw"} placeholder={"blur"} alt={"Logo"} />
                 </a>
             </Link>
 
-            <ul className={"nav-links"} ref={navLinkRef}>
+            <ul className={Style.navLinks} ref={navLinkRef}>
                 <li>
                     <Link href={"/"}><a>HOME</a></Link>
                 </li>
@@ -75,7 +77,7 @@ const Navbar = () => {
                 <li>
                     <Link href={"/works"}><a>WORKS</a></Link>
                 </li>
-                <li id={"nav-expandable-list-1"} className={"nav-expandable-list"} ref={navExpandableList1}>
+                <li id={"nav-expandable-list-1"} className={Style.navExpandableList} ref={navExpandableList1}>
                     <a href="#" onClick={() => toggleNavExpandable(navExpandableList1)}>HOBBIES</a>
 
                     <ul>
@@ -96,7 +98,7 @@ const Navbar = () => {
             </ul>
 
 
-            <div className={"nav-burger"} ref={navBurgerRef} onClick={toggleNavbar}>
+            <div className={Style.navBurger} ref={navBurgerRef} onClick={toggleNavbar}>
                 <div />
                 <div />
                 <div />

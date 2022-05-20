@@ -4,6 +4,8 @@ import "swiper/css/bundle";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
+import Style from "../styles/HomePage.module.css";
+
 
 const SwiperConfig = {
     loop: true,
@@ -36,7 +38,7 @@ const HomePage = () => {
 
             <main>
                 <section>
-                    <div id={"homepage-container"}>
+                    <div className={Style.homePageContainer}>
                         <h1 style={{color: "var(--darkPeachColour)"}}>Welcome!</h1>
                         <div>
                             <span>Hello, </span>
@@ -44,7 +46,7 @@ const HomePage = () => {
                         </div>
                         <div>
                             <div>I Love&nbsp;</div>
-                            <Swiper className="homepage-cube" {...SwiperConfig}>
+                            <Swiper className={Style.homePageCube} {...SwiperConfig}>
                                 <SwiperSlide>Making Games</SwiperSlide>
                                 <SwiperSlide>Creating Websites</SwiperSlide>
                                 <SwiperSlide>Playing Overwatch</SwiperSlide>
