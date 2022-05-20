@@ -178,19 +178,18 @@ a.darkPeachButton:hover {
 
 #tofu60-switch-content {
     display: flex;
-    align-items: stretch;
 }
 
 #tofu60-switch-content > p {
-    width: 51%;
     margin-right: 2%;
 }
 
-.tofu60-switch-image {
-    flex-grow: 1;
-    position: relative;
+#tofu60-switch-content > img {
+    display: block;
+    height: 100%;
+    width: 48%;
+    object-fit: cover;
     border-radius: 5px;
-    overflow: hidden;
 }
 
 /* NProgress Bar */

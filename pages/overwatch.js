@@ -22,9 +22,16 @@ class Role {
     constructor(role, data) {
         const roleIndex = {"tank": 0, "damage": 1, "support": 2};
         this.role = role;
-        this.roleIcon = data["ratings"][roleIndex[role]]["roleIcon"];
-        this.rankIcon = data["ratings"][roleIndex[role]]["rankIcon"];
-        this.sr = data["ratings"][roleIndex[role]]["level"];
+
+        try {
+            this.roleIcon = data["ratings"][roleIndex[role]]["roleIcon"];
+            this.rankIcon = data["ratings"][roleIndex[role]]["rankIcon"];
+            this.sr = data["ratings"][roleIndex[role]]["level"];
+        } catch (e) {
+            this.roleIcon = null;
+            this.rankIcon = null;
+            this.sr = null;
+        }
     }
 }
 
@@ -64,6 +71,9 @@ const displayOWProfile = (data) => {
     addHeader(owStatsContainer, "h1", myOWProfile.name, Style.owUsername);
     addHeader(owStatsContainer, "h3", myOWProfile.wins + " Games Won", Style.owGamesWon);
     addDiv(owStatsContainer, myOWProfile.border, myOWProfile.level, Style.owLevel);
+
+    if (myOWProfile.tank.rankIcon === null) { return; }
+
     const srContainer = addDiv(owStatsContainer, "", "", Style.owSrContainer);
 
     // Adds to Main SR Container
@@ -91,8 +101,20 @@ export const getServerSideProps = async () => {
     });
     const data = await res.json();
 
+    // This is if I want to implement default Overwatch Rank Stats if I'm not placed
+    // if (data["ratings"] === null) {
+    //     data["ratings"] = [{}, {}, {}];
+    //     data["ratings"][0]["roleIcon"] = "/Default%20Overwatch%20Assets/tank_icon.png";
+    //     data["ratings"][1]["roleIcon"] = "/Default%20Overwatch%20Assets/damage_icon.png";
+    //     data["ratings"][2]["roleIcon"] = "/Default%20Overwatch%20Assets/support_icon.png";
+    //
+    //     data["ratings"][0]["rankIcon"] = "/Default%20Overwatch%20Assets/masters_icon.png";
+    //     data["ratings"][1]["rankIcon"] = "/Default%20Overwatch%20Assets/masters_icon.png";
+    //     data["ratings"][2]["rankIcon"] = "/Default%20Overwatch%20Assets/masters_icon.png";
+    // }
+
     // Pass data to the page via props
-    return {props: {data}}
+    return { props: {data} }
 };
 
 const OverwatchArrow = () => {

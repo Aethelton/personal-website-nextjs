@@ -21,15 +21,18 @@ const initializeKeyboardModal = () => {
 
         modalOpenBtn.addEventListener("click", () => {
             modal.classList.add(KeyboardModalStyle.keyboardModalActive);
+            document.body.style.overflowY = "hidden";
         });
 
         modalCloseBtn.addEventListener("click", () => {
             modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
+            document.body.style.overflowY = "initial";
         });
 
         window.addEventListener("click", (evt) => {
             if (evt.target === modal) {
                 modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
+                document.body.style.overflowY = "initial";
             }
         });
     });
@@ -105,9 +108,7 @@ const CustomKeyboardPage = () => {
                                             smoothness, it&apos;s also filmed with Deskey films to reduce
                                             housing wobble for better sounding.
                                         </p>
-                                        <div className={"tofu60-switch-image"}>
-                                            <Image src={tofu60Switch} alt={"Tofu60 Switches"} layout={"fill"} objectFit={"cover"} placeholder={"blur"} />
-                                        </div>
+                                        <Image src={tofu60Switch} alt={"Tofu60 Switches"} layout={"raw"} placeholder={"blur"} />
                                     </div>
 
                                     <h3>Plate</h3>

@@ -84,11 +84,13 @@ const initModalSwipers = () => {
             modalContent.classList.add(Style.consoleModalContentActive);
             initializeConsoleModalCarousel(modalSwipers, modalContent, index);
             modalContent.style.position = "relative";
+            document.body.style.overflowY = "hidden";
         });
 
         modalCloseBtn.addEventListener("click", () => {
             modal.classList.remove(Style.consoleModalBackgroundActive);
             modalContent.classList.remove(Style.consoleModalContentActive);
+            document.body.style.overflowY = "initial";
             modalOffTransitionWait(modalContent);
         });
 
@@ -96,6 +98,7 @@ const initModalSwipers = () => {
             if (evt.target === modal) {
                 modal.classList.remove(Style.consoleModalBackgroundActive);
                 modalContent.classList.remove(Style.consoleModalContentActive);
+                document.body.style.overflowY = "initial";
                 modalOffTransitionWait(modalContent);
             }
         });
