@@ -90,7 +90,7 @@ const initModalSwipers = () => {
         modalCloseBtn.addEventListener("click", () => {
             modal.classList.remove(Style.consoleModalBackgroundActive);
             modalContent.classList.remove(Style.consoleModalContentActive);
-            document.body.style.overflowY = "initial";
+            document.body.style.overflowY = null;
             modalOffTransitionWait(modalContent);
         });
 
@@ -98,7 +98,7 @@ const initModalSwipers = () => {
             if (evt.target === modal) {
                 modal.classList.remove(Style.consoleModalBackgroundActive);
                 modalContent.classList.remove(Style.consoleModalContentActive);
-                document.body.style.overflowY = "initial";
+                document.body.style.overflowY = null;
                 modalOffTransitionWait(modalContent);
             }
         });

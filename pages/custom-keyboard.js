@@ -26,13 +26,13 @@ const initializeKeyboardModal = () => {
 
         modalCloseBtn.addEventListener("click", () => {
             modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
-            document.body.style.overflowY = "initial";
+            document.body.style.overflowY = null;
         });
 
         window.addEventListener("click", (evt) => {
             if (evt.target === modal) {
                 modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
-                document.body.style.overflowY = "initial";
+                document.body.style.overflowY = null;
             }
         });
     });
