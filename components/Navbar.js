@@ -56,7 +56,7 @@ const Navbar = () => {
         navLinkRef.current.classList.toggle(Style.navLinksActive);
         navBurgerRef.current.classList.toggle(Style.navBurgerActive);
         document.body.classList.toggle("lock-scroll");
-        document.documentElement.toggle("lock-scroll");
+        document.documentElement.classList.toggle("lock-scroll");
 
         smoothScrollToTop();
     };
