@@ -22,17 +22,20 @@ const initializeKeyboardModal = () => {
         modalOpenBtn.addEventListener("click", () => {
             modal.classList.add(KeyboardModalStyle.keyboardModalActive);
             document.body.style.overflowY = "hidden";
+            document.documentElement.style.overflowY = "hidden";
         });
 
         modalCloseBtn.addEventListener("click", () => {
             modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
             document.body.style.overflowY = null;
+            document.documentElement.style.overflowY = null;
         });
 
         window.addEventListener("click", (evt) => {
             if (evt.target === modal) {
                 modal.classList.remove(KeyboardModalStyle.keyboardModalActive);
                 document.body.style.overflowY = null;
+                document.documentElement.style.overflowY = null;
             }
         });
     });

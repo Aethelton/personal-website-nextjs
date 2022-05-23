@@ -26,6 +26,7 @@ const Navbar = () => {
     useEffect(() => {
         navLinks.current = navLinkRef.current.querySelectorAll(`.${Style.navLinks} > li`);
         document.body.classList.remove("lock-scroll");
+        document.documentElement.classList.remove("lock-scroll");
     }, []);
 
     if (phoneMedia && document.body.classList.contains("lock-scroll")) {
@@ -55,6 +56,7 @@ const Navbar = () => {
         navLinkRef.current.classList.toggle(Style.navLinksActive);
         navBurgerRef.current.classList.toggle(Style.navBurgerActive);
         document.body.classList.toggle("lock-scroll");
+        document.documentElement.toggle("lock-scroll");
 
         smoothScrollToTop();
     };
