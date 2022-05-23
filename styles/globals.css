@@ -228,7 +228,7 @@ a.darkPeachButton:hover {
 /* Smartphone */
 @media screen and (max-width: 768px) {
     .lock-scroll {
-        overflow: hidden;
+        overflow-y: hidden;
     }
 }
 
