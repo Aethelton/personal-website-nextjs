@@ -85,14 +85,12 @@ const initModalSwipers = () => {
             initializeConsoleModalCarousel(modalSwipers, modalContent, index);
             modalContent.style.position = "relative";
             document.body.style.overflowY = "hidden";
-            document.documentElement.style.overflowY = "hidden";
         });
 
         modalCloseBtn.addEventListener("click", () => {
             modal.classList.remove(Style.consoleModalBackgroundActive);
             modalContent.classList.remove(Style.consoleModalContentActive);
             document.body.style.overflowY = null;
-            document.documentElement.style.overflowY = null;
             modalOffTransitionWait(modalContent);
         });
 
@@ -101,7 +99,6 @@ const initModalSwipers = () => {
                 modal.classList.remove(Style.consoleModalBackgroundActive);
                 modalContent.classList.remove(Style.consoleModalContentActive);
                 document.body.style.overflowY = null;
-                document.documentElement.style.overflowY = null;
                 modalOffTransitionWait(modalContent);
             }
         });
