@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import FooterInfo from "../components/FooterInfo";
-import { useEffect, useRef } from "react";
+import {useEffect, useRef} from "react";
 import Style from "../styles/Overwatch.module.css";
 
 
@@ -72,8 +72,6 @@ const displayOWProfile = (data) => {
     addHeader(owStatsContainer, "h3", myOWProfile.wins + " Games Won", Style.owGamesWon);
     addDiv(owStatsContainer, myOWProfile.border, myOWProfile.level, Style.owLevel);
 
-    if (myOWProfile.tank.rankIcon === null) { return; }
-
     const srContainer = addDiv(owStatsContainer, "", "", Style.owSrContainer);
 
     // Adds to Main SR Container
@@ -85,9 +83,13 @@ const displayOWProfile = (data) => {
 
     // Adds to individual SR Containers
     for (const [role, containerNode] of Object.entries(individualSRContainers)) {
-        addImg(containerNode, myOWProfile[role].roleIcon, `${role} Role Icon`, Style.owRoleIcon);
-        addImg(containerNode, myOWProfile[role].rankIcon, `${role} Rank Icon`, Style.owRankIcon);
-        addHeader(containerNode, "h4", myOWProfile[role].sr, Style.owRoleSrText);
+        if (myOWProfile[role].sr !== null) {
+            addImg(containerNode, myOWProfile[role].roleIcon, `${role} Role Icon`, Style.owRoleIcon);
+            addImg(containerNode, myOWProfile[role].rankIcon, `${role} Rank Icon`, Style.owRankIcon);
+            addHeader(containerNode, "h4", myOWProfile[role].sr, Style.owRoleSrText);
+        } else {
+            containerNode.style.display = "none";
+        }
     }
 }
 
@@ -114,7 +116,7 @@ export const getServerSideProps = async () => {
     // }
 
     // Pass data to the page via props
-    return { props: {data} }
+    return { props: {data} };
 };
 
 const OverwatchArrow = () => {
@@ -124,7 +126,7 @@ const OverwatchArrow = () => {
     });
 };
 
-const OverwatchPage = ({ data }) => {
+const OverwatchPage = ({data}) => {
     const loadedRef = useRef(false);
 
     useEffect(() => {
@@ -132,7 +134,7 @@ const OverwatchPage = ({ data }) => {
             displayOWProfile(data);
             loadedRef.current = true;
         }
-    }, []);
+    }, [data]);
 
     return (
         <>
@@ -148,7 +150,7 @@ const OverwatchPage = ({ data }) => {
                 <section className={Style.owStatsContainer}>
                     <div className={Style.owStatsBg}/>
                     <div className={Style.owStatsContent}/>
-                    <i className={`fas fa-angle-down ${Style.owDropdownArrow}`} onClick={OverwatchArrow} />
+                    <i className={`fas fa-angle-down ${Style.owDropdownArrow}`} onClick={OverwatchArrow}/>
                 </section>
             </main>
 
