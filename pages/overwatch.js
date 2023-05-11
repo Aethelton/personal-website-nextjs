@@ -8,10 +8,13 @@ import Style from "../styles/Overwatch.module.css";
 class OWProfile {
     constructor(data) {
         this.name = "SuperMage";
-        this.icon = data["icon"];
+        this.icon = data["avatar"];
         this.border = data["levelIcon"];
         this.level = data["level"];
-        this.wins = data["gamesWon"];
+        
+        // this.wins = data["gamesWon"]; Old API DIED
+        this.wins = 5923;
+
         this.tank = new Role("tank", data);
         this.damage = new Role("damage", data);
         this.support = new Role("support", data);
@@ -20,13 +23,12 @@ class OWProfile {
 
 class Role {
     constructor(role, data) {
-        const roleIndex = {"tank": 0, "damage": 1, "support": 2};
         this.role = role;
-
+        
         try {
-            this.roleIcon = data["ratings"][roleIndex[role]]["roleIcon"];
-            this.rankIcon = data["ratings"][roleIndex[role]]["rankIcon"];
-            this.sr = data["ratings"][roleIndex[role]]["level"];
+            this.roleIcon = data["competitive"]["pc"][role]["role_icon"];
+            this.rankIcon = data["competitive"]["pc"][role]["rank_icon"];
+            this.sr = `${data["competitive"]["pc"][role]["division"].toUpperCase()} ${data["competitive"]["pc"][role]["tier"]}`;
         } catch (e) {
             this.roleIcon = null;
             this.rankIcon = null;
@@ -95,7 +97,7 @@ const displayOWProfile = (data) => {
 
 export const getServerSideProps = async () => {
     // Fetch data from external API
-    const res = await fetch("https://ovrstat.com/stats/pc/SuperMage-149910", {
+    const res = await fetch("https://overfast-api.tekrop.fr/players/SuperMage-149910/summary", {
         method: 'GET',
         headers: {
             "Access-Control-Allow-Origin": "*"
