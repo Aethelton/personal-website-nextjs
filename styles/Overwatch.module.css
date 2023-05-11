@@ -50,7 +50,7 @@
     font-family: var(--secondaryFont), "sans-serif";
     color: var(--peachColour);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: clamp(0px, 1vh, 20px);
 }
 
 .owLevel {
