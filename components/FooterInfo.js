@@ -16,7 +16,7 @@ const FooterInfo = () => {
             </div>
 
             <div className={Style.footerInfo}>
-                <p>Copyright © 2023 Eston Li</p>
+                <p>Copyright © 2025 Eston Li</p>
             </div>
 
             <Script src="https://kit.fontawesome.com/c83ef652df.js" crossOrigin="anonymous" />
