@@ -6,7 +6,7 @@ const FooterInfo = () => {
         <>
             <div className={Style.footerIcons}>
                 <a href="mailto: contact@estonli.ca"><i className="fas fa-envelope"/></a>
-                <a href="https://github.com/SuperMage03" target="_blank" rel="noreferrer"><i className="fab fa-github"/></a>
+                <a href="https://github.com/Aethelton" target="_blank" rel="noreferrer"><i className="fab fa-github"/></a>
                 <a href="https://www.youtube.com/channel/UCenqEx0Lw5mRrT_IvjHX7Bg" target="_blank" rel="noreferrer">
                     <i className="fab fa-youtube"/>
                 </a>
